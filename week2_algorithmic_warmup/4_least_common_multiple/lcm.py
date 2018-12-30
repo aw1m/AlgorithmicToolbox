@@ -1,15 +1,23 @@
 # Uses python3
 import sys
 
-def lcm_naive(a, b):
-    for l in range(1, a*b + 1):
-        if l % a == 0 and l % b == 0:
-            return l
+def lcm(a, b):
+    x = a
+    y = b
+    z = 0
 
-    return a*b
+    while (True):
+        if y == 0:
+            gcd =  x
+        else:
+            z = x % y
+            x = y
+            y = z
+
+    return (a*b)//gcd
 
 if __name__ == '__main__':
     input = sys.stdin.read()
     a, b = map(int, input.split())
-    print(lcm_naive(a, b))
+    print(lcm(a, b))
 
